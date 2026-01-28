@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "name": "portfolio",
+  "cleanUrls": true,
+  "framework": null,
+  "installCommand": "npm install",
+  "buildCommand": null,
+  "outputDirectory": ".",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
