@@ -42,6 +42,9 @@ body {
     border-radius: 50%;
     z-index: 9999;
     pointer-events: none;
+    will-change: transform;
+    /* GPU acceleration */
+    transform: translate3d(-50%, -50%, 0);
 }
 
 .cursor-dot {
@@ -55,6 +58,7 @@ body {
     height: 40px;
     border: 1px solid rgba(255, 255, 255, 0.5);
     transition: width 0.2s, height 0.2s, background-color 0.2s;
+    backface-visibility: hidden;
 }
 
 body:hover .cursor-outline {
@@ -176,6 +180,9 @@ h4 {
     position: absolute;
     border-radius: 50%;
     animation: float 10s infinite ease-in-out;
+    will-change: transform;
+    /* GPU acceleration for smooth animations */
+    transform: translate3d(0, 0, 0);
 }
 
 .blob-1 {
@@ -314,6 +321,11 @@ h4 {
     overflow: hidden;
     transition: var(--transition);
     position: relative;
+    will-change: transform;
+    /* CSS containment for better performance */
+    contain: layout style paint;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
 }
 
 .project-card:hover {
@@ -332,6 +344,10 @@ h4 {
     height: 100%;
     object-fit: cover;
     transition: transform 0.6s ease;
+    will-change: transform;
+    backface-visibility: hidden;
+    /* GPU acceleration */
+    transform: translate3d(0, 0, 0);
 }
 
 .projects-cta {
@@ -648,11 +664,47 @@ footer {
     }
 
     .nav-links {
-        display: none;
+        position: fixed;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background: rgba(5, 5, 5, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        gap: 0;
+        padding: 2rem;
+        border-top: 1px solid var(--card-border);
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        pointer-events: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+        transform: translateX(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-links li:last-child {
+        border-bottom: none;
     }
 
     .menu-btn {
         display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .menu-btn.active {
+        transform: rotate(90deg);
     }
 
     .about-container {
