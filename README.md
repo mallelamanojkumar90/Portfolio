@@ -99,7 +99,7 @@ I'm M Manoj Kumar, an Electronics and Communications Engineer by training and an
 ## 📬 Contact Details
 
 - **Email:** [mallelamanoj75@gmail.com](mailto:mallelamanoj75@gmail.com)
-- **LinkedIn:** [Manoj Kumar Mallela](https://www.linkedin.com/in/manojkumar-mallela-045157104)
+- **LinkedIn:** [Manoj Kumar Mallela](https://www.linkedin.com/in/manojkumar-mallela)
 - **GitHub:** [@mallelamanojkumar90](https://github.com/mallelamanojkumar90)
 - **Twitter:** [@itsM_Manojkumar](https://twitter.com/itsM_Manojkumar)
 
